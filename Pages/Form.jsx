@@ -16,7 +16,7 @@ const Form = ({colour, setColour, generateShades}) => {
   }
 
   return (
-    <header className="container">
+    
       <form
         className="colour-form"
         onSubmit={handleSubmit}
@@ -45,7 +45,6 @@ const Form = ({colour, setColour, generateShades}) => {
           </button>
         </div>
       </form>
-    </header>
   );
 };
 export default Form;
