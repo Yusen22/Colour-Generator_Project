@@ -20,8 +20,8 @@ useEffect(() => {
     setShades(newColours)
   }
   return (
-  <main className='container'>
-    <h2>Color Generator Starter</h2>
+  <main>
+    <h2 className='title'>Color Generator Starter</h2>
     <Form setColour={setColour} colour={colour} generateShades={generateShades}></Form>
     <ColourList shades={shades}/>
     <ToastContainer position='top-center'/>
