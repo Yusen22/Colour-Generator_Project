@@ -325,16 +325,21 @@ input[type="color" i]::-webkit-color-swatch {
   }
 }
 
-.colors {
-  min-height: calc(100vh - 160px);
+.colour-list {
+  min-width: 100vw;
+  min-height: 50vw;
+  
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(96px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(14%, 1fr));
 }
-.color {
-  padding: 1rem 2rem;
-  cursor: pointer;
+.colour {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  min-height: 100px; 
+  color: white; 
   font-size: 1rem;
+  padding: 3px 2px
 }
 .color p {
   line-height: 1.5;
