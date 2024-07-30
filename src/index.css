@@ -66,8 +66,8 @@ html {
 
 body {
   background: var(--backgroundColor);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1;
   color: var(--textColor);
@@ -258,29 +258,61 @@ ul {
   padding: 2rem;
   display: grid;
   row-gap: 1.5rem;
-  height: 160px;
+  height: 100px;
 }
 
-.color-form {
+.colour-form {
   display: flex;
+  width: 40vw;
+  padding: 0px 15px 15px 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 2px var(--grey-400) solid;
+  border-radius: 20px;
 }
-input[type='text'] {
+input[type="text"] {
   border-color: transparent;
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
-  max-width: 200px;
+  width: fit-content;
+
 }
-input[type='color'] {
+input[type="color" i] {
+  appearance: none;
+  border: none;
+  height: 140px;
+  width: 140px;
+  background-color: transparent;
+}
+
+input[type="color" i]::-webkit-color-swatch {
+  border-radius: 50%;
+  border: 4px var(--grey-600) solid;
+}
+.form-btn {
+  background-color: rgb(51, 182, 31);
+  border: 0;
+  padding: 2px 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   height: 100%;
-  background-color: var(--white);
-  border-color: var(--white);
+  width: 100;
+  display: inline;
+  cursor: pointer;
 }
-.container .btn {
-  border-radius: 0;
-  border-top-right-radius: var(--borderRadius);
-  border-bottom-right-radius: var(--borderRadius);
-  letter-spacing: 3px;
-  transition-duration: 0s;
+
+.form-btn :hover {
+  background-color: rgb(20, 78, 11) !important;
+  color: white;
+  border: solid #1e293b 10px;
+}
+
+.picker-submit {
+  width: fit-content;
+ margin: 0 auto;
+ display: flex;
 }
 @media screen and (min-width: 768px) {
   .container {
