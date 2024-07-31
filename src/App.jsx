@@ -10,11 +10,11 @@ const App = () => {
   const [shades, setShades] = useState([]);
   const coloursRef = useRef(null);
 
-  const clipCopy = async (text) => {
+  const clipCopy = async (name, colour) => {
     try {
-      await navigator.clipboard.writeText(text);
-      console.log(`Text copied to clipboard: ${text}`);
-      toast.success(`'${text}' copied to clipboard!`);
+      await navigator.clipboard.writeText(colour);
+      console.log(`Text copied to clipboard: ${colour}`);
+      toast.success(`${name} copied to clipboard!`);
     } catch (error) {
       console.error("Failed to copy text: ", error);
       toast.error(`Failed to copy colour!`);

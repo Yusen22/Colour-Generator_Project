@@ -29,11 +29,11 @@ const SingleColour = ({ className, colour, shades, clipCopy }) => {
           }}
           className="copy-section"
         >
-          <div onClick={() => clipCopy(colour.hex)}>
+          <div onClick={() => clipCopy(colour.name, colour.hex)}>
             <FaCopy className="icon" />
             <p>Copy Hex</p>
           </div>
-          <div onClick={() => clipCopy(colour.rgb)}>
+          <div onClick={() => clipCopy(colour.name, colour.rgb)}>
             <FaCopy className="icon" />
             <p>Copy RGB</p>
           </div>
