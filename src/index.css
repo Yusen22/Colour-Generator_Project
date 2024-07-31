@@ -238,6 +238,7 @@ ul {
 
 .title {
   text-align: center;
+  margin-top: 40px;
 }
 
 .title-underline {
@@ -264,7 +265,7 @@ ul {
   justify-content: center;
   border: 2px var(--grey-400) solid;
   border-radius: 20px;
-  margin: 10px auto;
+  margin: 40px auto;
 }
 input[type="text"] {
   border-color: transparent;
@@ -302,7 +303,7 @@ input[type="color" i]::-webkit-color-swatch {
   border: solid #1e293b 10px;
 }
 .colour-list {
-  width: 97vw;
+  width: calc(100vw - 34px);
   min-height: 50vw;
   margin: 0 auto;
   display: grid;
