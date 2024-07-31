@@ -29,7 +29,6 @@ const Form = ({colour, setColour, generateShades}) => {
           value={colour ? colour : "#47bd14"}
           onChange={handleChange}
         />
-        <div className="picker-submit">
           <label htmlFor=""></label>
           <input
             type="text"
@@ -43,7 +42,6 @@ const Form = ({colour, setColour, generateShades}) => {
           >
             Submit
           </button>
-        </div>
       </form>
   );
 };
