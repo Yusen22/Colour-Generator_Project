@@ -1,52 +1,25 @@
 import Values from "values.js";
-import hexRgb from "hex-rgb";
+import classNames from 'classnames';
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 
 const ColourList = ({ shades }) => {
-  const [rgbHex, setRgbHex] = useState([]);
-  const [rgbSum, setRgbSum] = useState(0)
-  console.log(shades?.hex || "Error");
-
-  useEffect(() => {
-    const getRgbValues = () => {
-      const newRgb = shades.map((shade) => {
-        const convRgb = hexRgb(shade.hex);
-        if (!convRgb) return;
-        return {
-          hex: shade.hex,
-          rgb: `rgb(${convRgb.red}, ${convRgb.green}, ${convRgb.blue})`,
-        };
-      });
-      setRgbHex(newRgb);
-    };
-    getRgbValues();
-  }, [shades]);
-  
-  useEffect(() => {
-    const calculateSumOfRgb = () => {
-      console.log(rgbHex)
-      rgbHex.map//
-    };
-    calculateSumOfRgb();
-  }, [rgbHex])
- 
-
+  // console.log(shades?.hex || "Error");
 
   return (
     <section>
       <div className="colour-list">
-        {rgbHex.map((colour, i) => {
-          const initialCol = Math;
+        {shades.map((colour, i) => {
           const id = nanoid();
+          const colourClasses = classNames({
+            "colour": true, // Always apply this class
+            "initial-colour": i === Math.round(shades.length / 2 - 1),
+            "text-dark": colour.rgbValue >= (755 / 2),
+            "text-light": colour.rgbValue < (755 / 2)
+          });
           return (
             <div
-              className={
-                i === Math.round(shades.length / 2 - 1)
-                  ? "colour initial-colour"
-                  : "colour"
-              }
-              className={shades.rgb ? "colour initial-colour" : "colour"}
+              className={colourClasses}
               key={id}
               style={{ backgroundColor: `#${colour.hex}` }}
             >
