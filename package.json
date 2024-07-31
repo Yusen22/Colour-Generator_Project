@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "hex-rgb": "^5.0.0",
     "nanoid": "^4.0.2",
     "react": "^18.2.0",
