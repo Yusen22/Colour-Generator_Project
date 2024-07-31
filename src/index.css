@@ -343,9 +343,10 @@ input[type="color" i]::-webkit-color-swatch {
   font-size: 0.75rem;
 }
 
-.color-light .color-value {
-  color: var(--white);
+.text-light {
+  color: white
 }
-.color-light .percent-value {
-  color: var(--white);
+
+.text-dark {
+  color: black
 }
