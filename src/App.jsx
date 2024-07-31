@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ColourList, Form } from "../Pages";
+import { ColourList, Form, Header } from "../Pages";
 import { ToastContainer, toast } from "react-toastify";
 import { GetColorName } from 'hex-color-to-color-name';
 import hexRgb from "hex-rgb";
@@ -56,7 +56,7 @@ const App = () => {
   };
   return (
     <main>
-      <h2 className="title">Color Generator Starter</h2>
+      <Header></Header>
       <Form
         setColour={setColour}
         colour={colour}
