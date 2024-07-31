@@ -1,31 +1,32 @@
 import Values from "values.js";
-import classNames from 'classnames';
+import classNames from "classnames";
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
+import SingleColour from "./SingleColour";
 
-const ColourList = ({ shades }) => {
+const ColourList = ({ shades, clipCopy, coloursRef }) => {
   // console.log(shades?.hex || "Error");
-
   return (
     <section>
-      <div className="colour-list">
+      <div className="colour-list" ref={coloursRef}>
         {shades.map((colour, i) => {
-          const id = nanoid();
           const colourClasses = classNames({
-            "colour": true, // Always apply this class
-            "initial-colour": i === Math.round(shades.length / 2 - 1),
-            "text-dark": colour.rgbValue >= (755 / 2),
-            "text-light": colour.rgbValue < (755 / 2)
+            colour: true, // Always apply this class
+            "colour-name": true,
+            "initial-colour colour-name-visible": i === Math.round(shades.length / 2 - 1),
+            "text-dark": colour.rgbValue >= 755 / 2,
+            "text-light": colour.rgbValue < 755 / 2,
           });
+          const id = nanoid();
+          console.log(id)
           return (
-            <div
-              className={colourClasses}
+            <SingleColour
               key={id}
-              style={{ backgroundColor: `#${colour.hex}` }}
-            >
-              <h5>{`#${colour.hex}`}</h5>
-              <p>{colour.rgb}</p>
-            </div>
+              className={colourClasses}
+              colour={colour}
+              clipCopy={clipCopy}
+              shades={shades}
+            />
           );
         })}
       </div>
