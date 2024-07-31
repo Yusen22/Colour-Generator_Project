@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from "react";
 
 
-const Form = ({colour, setColour, generateShades}) => {
+const Form = ({colour, setColour, generateShades, coloursRef}) => {
   
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -12,6 +12,7 @@ const Form = ({colour, setColour, generateShades}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+      coloursRef.current.scrollIntoView({ behavior: 'smooth' });
     generateShades(colour)
   }
 
