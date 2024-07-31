@@ -1,19 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ColourList, Form } from "../Pages";
 import { ToastContainer, toast } from "react-toastify";
+import { GetColorName } from 'hex-color-to-color-name';
 import hexRgb from "hex-rgb";
 import Values from "values.js";
-
-// toast.success('awesome');
-// toast.error('error message');
 
 const App = () => {
   const [colour, setColour] = useState("");
   const [shades, setShades] = useState([]);
+  const coloursRef = useRef(null);
 
-  useEffect(() => {
-    console.log(colour);
-  }, [colour]);
+  const clipCopy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log(`Text copied to clipboard: ${text}`);
+      toast.success(`'${text}' copied to clipboard!`);
+    } catch (error) {
+      console.error("Failed to copy text: ", error);
+      toast.error(`Failed to copy colour!`);
+    }
+  };
 
   const generateShades = (colour) => {
     // Generates an array of hex string shades of chosen colour
@@ -26,17 +32,21 @@ const App = () => {
 
   const getRgbValues = (colours) => {
     const newRgb = colours.map((colour) => {
+       // gets name of colour 
+       const colorName = GetColorName(colour.hex)
       // converts hex to rgb
       const convRgb = hexRgb(colour.hex);
       console.log(convRgb);
       // returns null if not a colour
       if (!convRgb) return null;
-
+      // gets sum of rgb values for conditional styling
       let rgbVals = [convRgb.red, convRgb.green, convRgb.blue].map(Number);
       let rgbVal = rgbVals.reduce((a, b) => a + b, 0);
       console.log(rgbVal);
-
+  
+      // returns an object 
       return {
+        name: colorName,
         hex: colour.hex,
         rgb: `rgb(${convRgb.red}, ${convRgb.green}, ${convRgb.blue})`,
         rgbValue: rgbVal,
@@ -51,8 +61,13 @@ const App = () => {
         setColour={setColour}
         colour={colour}
         generateShades={generateShades}
+        coloursRef={coloursRef}
       ></Form>
-      <ColourList shades={shades} />
+      <ColourList
+        clipCopy={clipCopy}
+        shades={shades}
+        coloursRef={coloursRef}
+      />
       <ToastContainer position="top-center" />
     </main>
   );
