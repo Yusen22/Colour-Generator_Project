@@ -1,7 +1,7 @@
 /* ============= GLOBAL CSS =============== */
 /* FONTS */
 /* Rubik Puddles, Plaster, Mrs Sheppards, Miltonian, Tilt Warp and Fredericka the Great */
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Miltonian&family=Mrs+Sheppards&family=Plaster&family=Rubik+Puddles&family=Tilt+Warp&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Miltonian&family=Mrs+Sheppards&family=Plaster&family=Rubik+Puddles&family=Tilt+Warp&display=swap");
 
 *,
 ::after,
@@ -192,13 +192,14 @@ h5 {
 
 .header {
   position: relative;
-  padding: 15px 45px;
+  display: block;
+  padding: 15px 75px;
   box-shadow: 5px 0px 7px #0f5132;
 }
 .header h2 {
-  font-family: 'Fredericka the Great';
+  font-family: "Fredericka the Great";
   display: inline;
-  padding-right: 10px ;
+  padding-right: 10px;
 }
 
 .header h4 {
@@ -210,37 +211,43 @@ h5 {
   text-align: right; */
 
   /* STYLE 2 */
-font-family: 'Miltonian';
+  font-family: "Miltonian";
   display: block;
   font-size: smaller;
   width: 10%;
   padding-left: 3px;
   letter-spacing: 0.21rem;
   line-height: 0.7rem;
-  margin-top: -4px 
+  margin-top: -4px;
+}
 
-  }
-
-  
-
-  #logo-y {
-    font-size: 3.5rem;
-    top: -0;
-    position: absolute;
-    margin-top: -1px;
-    margin-left: -3px;
-    display: inline-block;
-    text-transform: lowercase;
-
-  }
-/* Rubik Puddles, Plaster, Mrs Sheppards, Miltonian, Tilt Warp and Fredericka the Great */ */
+#logo-y {
+  font-size: 3.5rem;
+  top: -0;
+  position: absolute;
+  margin-top: -1px;
+  margin-left: -3px;
+  display: inline-block;
+  text-transform: lowercase;
+}
 /* ============= PROJECT CSS =============== */
 
+.hidden {
+  display: none;
+}
 .container {
   padding: 2rem;
   display: grid;
   row-gap: 1.5rem;
   height: 100px;
+}
+.hero {
+  height: 70vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  background: linear-gradient(to right, #16222a, #3a6073);
 }
 
 .colour-form {
@@ -294,7 +301,6 @@ input[type="color" i]::-webkit-color-swatch {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
 }
 .colour {
   position: relative;
@@ -372,11 +378,10 @@ input[type="color" i]::-webkit-color-swatch {
 }
 .copy-section div:hover {
   color: #302d5b;
-
 }
 
 .copy-section .icon {
- font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 .copy-section div p {
@@ -385,12 +390,69 @@ input[type="color" i]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 150px;
+  aspect-ratio: 1;
+  background: linear-gradient(45deg, #a00d0d 50%, #0000 0),
+    linear-gradient(45deg, #0000 50%, #a00d0d 0),
+    linear-gradient(-45deg, #f77825 50%, #0000 0),
+    linear-gradient(-45deg, #0000 50%, #f77825 0), linear-gradient(#d35608 0 0);
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  animation: l18 10s infinite;
+}
+.loader-2 {
+  width: 150px;
+  aspect-ratio: 1;
+  background: linear-gradient(0deg, #a00d0d 50%, #0000 0),
+    linear-gradient(0deg, #0000 50%, #a00d0d 0),
+    linear-gradient(-90deg, #f77825 50%, #0000 0),
+    linear-gradient(-90deg, #0000 50%, #f77825 0), linear-gradient(#d35608 0 0);
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  animation: l18 10s infinite;
+}
+
+.rotate-90-cw {
+  animation: rota 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animation-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@keyframes l18 {
+  0% {
+    background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+  }
+  25% {
+    background-position: 0 100%, 100% 0, 50% 50%, 50% 50%, 50% 50%;
+  }
+  50% {
+    background-position: 0 100%, 100% 0, 100% 100%, 0 0, 50% 50%;
+  }
+  75% {
+    background-position: 50% 50%, 50% 50%, 100% 100%, 0 0, 50% 50%;
+  }
+  100% {
+    background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+  }
+}
+
 .text-light {
-  color: white
+  color: white;
 }
 
 .text-dark {
-  color: black
+  color: black;
+}
+
+.fade-in-bottom {
+  -webkit-animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 @media screen and (min-width: 680px) {
