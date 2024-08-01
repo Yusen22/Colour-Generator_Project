@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ColourList, Form, Header } from "../Pages";
+import { ColourList, Form, Header, Hero } from "../Pages";
 import { ToastContainer, toast } from "react-toastify";
 import { GetColorName } from 'hex-color-to-color-name';
 import hexRgb from "hex-rgb";
@@ -56,7 +56,8 @@ const App = () => {
   };
   return (
     <main>
-      <Header></Header>
+      <Header/>
+      <Hero></Hero>
       <Form
         setColour={setColour}
         colour={colour}
