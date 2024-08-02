@@ -347,12 +347,14 @@ h5 {
   background-color: rgb(244, 244, 244);
   transition: transform 0.8s ease;
   
+  
 }
 
 .swatch-square {
   height: 60px;
   width: 60px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .sw-s-top-l {
