@@ -5,6 +5,7 @@ import { GetColorName } from 'hex-color-to-color-name';
 import hexRgb from "hex-rgb";
 import Values from "values.js";
 
+
 const App = () => {
   const [colour, setColour] = useState("");
   const [shades, setShades] = useState([]);
@@ -24,9 +25,7 @@ const App = () => {
   const generateShades = (colour) => {
     // Generates an array of hex string shades of chosen colour
     const colours = new Values(colour).all(10);
-    console.log(colours);
     const fullColours = getRgbValues(colours);
-    console.log(fullColours);
     setShades(fullColours);
   };
 
@@ -34,16 +33,17 @@ const App = () => {
     const newRgb = colours.map((colour) => {
        // gets name of colour 
        const colorName = GetColorName(colour.hex)
+
       // converts hex to rgb
       const convRgb = hexRgb(colour.hex);
-      console.log(convRgb);
+
       // returns null if not a colour
       if (!convRgb) return null;
+
       // gets sum of rgb values for conditional styling
       let rgbVals = [convRgb.red, convRgb.green, convRgb.blue].map(Number);
-      let rgbVal = rgbVals.reduce((a, b) => a + b, 0);
-      console.log(rgbVal);
-  
+      let rgbVal = rgbVals.reduce((a, b) => a + b, 0);  
+      
       // returns an object 
       return {
         name: colorName,
