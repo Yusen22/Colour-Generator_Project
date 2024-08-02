@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const Form = ({ colour, setColour, generateShades, coloursRef }) => {
   const handleChange = (e) => {
     console.log(e.target.value);
-    setColour(e.target.value);
+    setColour(e.target.value)
   };
 
   const handleSubmit = (e) => {
@@ -24,15 +24,15 @@ const Form = ({ colour, setColour, generateShades, coloursRef }) => {
           className="colour-input"
           type="color"
           name="colour"
-          value={colour ? colour : "#47bd14"}
+          value={colour || "#47bd14"}
           onChange={handleChange}
         />
         <label htmlFor=""></label>
         <input
           type="text"
           name="text"
-          onChange={handleChange}
-          value={colour}
+          on={handleChange}
+          value={colour || "#47bd14"}
         />
         <button
           type="submit"
