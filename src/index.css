@@ -3,7 +3,12 @@
 /* Rubik Puddles, Plaster, Mrs Sheppards, Miltonian, Tilt Warp and Fredericka the Great */
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Miltonian&family=Mrs+Sheppards&family=Plaster&family=Rubik+Puddles&family=Tilt+Warp&display=swap");
 
-*,
+/* Anton */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Teko:wght@300..700&display=swap");
+
+/* Manrope, Montserrat, Roboto Condensed,Roboto and Anton */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 ::after,
 ::before {
   margin: 0;
@@ -97,7 +102,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.441rem;
+  font-size: 2.652rem;
 }
 
 h3 {
@@ -192,14 +197,42 @@ h5 {
 
 .header {
   position: relative;
-  display: block;
+  display: flex;
+  height: min-content;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px 75px;
-  box-shadow: 5px 0px 7px #0f5132;
+  box-shadow: 5px 0px 7px #a7a7a7;
+  background: linear-gradient(to right, #16222a, #3a6073);
+ 
 }
+
+.logo {
+  color: white;
+  display: inline;
+  min-width: 400px;
+}
+
+
 .header h2 {
   font-family: "Fredericka the Great";
   display: inline;
   padding-right: 10px;
+}
+
+.header .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  text-decoration: none;
+}
+.header a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-family: 'Roboto Condensed';
+  letter-spacing: 5px;
 }
 
 .header h4 {
@@ -216,17 +249,17 @@ h5 {
   font-size: smaller;
   width: 10%;
   padding-left: 3px;
-  letter-spacing: 0.21rem;
+  letter-spacing: 0.26rem;
   line-height: 0.7rem;
   margin-top: -4px;
 }
 
 #logo-y {
-  font-size: 3.5rem;
+  font-size: 3.7rem;
   top: -0;
   position: absolute;
-  margin-top: -1px;
-  margin-left: -3px;
+  margin-top: -1.5px;
+  margin-left: -4px;
   display: inline-block;
   text-transform: lowercase;
 }
@@ -250,6 +283,95 @@ h5 {
   background: linear-gradient(to right, #16222a, #3a6073);
 }
 
+.hero-text {
+  display: inline-block;
+  padding: 0 30px 0 150px;
+  width: fit-content;
+  color: rgb(218, 218, 218);
+}
+
+.hero-text h2 {
+  line-height: 2.8rem;
+  letter-spacing: 3px;
+  font-family: "Roboto";
+  margin: 15px 0;
+}
+
+#hero-title-1 {
+  margin: 30px 0;
+  font-weight: "300";
+  text-decoration: "underline";
+  text-underline-offset: "7px";
+  text-decoration-thickness: "2px";
+  font-style: "italic";
+  letter-spacing: "5px";
+}
+
+.hero-text p {
+  /* padding: 2px 0; */
+  line-height: 1.6rem;
+  font-weight: 200;
+  color: rgb(203, 202, 202);
+  /* font-family: 'Roboto'; */
+  font-family: "Montserrat";
+}
+
+/* Manrope, Montserrat, Roboto Condensed,Roboto and Anton */
+
+.hero-text span {
+  font-weight: 700;
+  color: rgb(218, 218, 218);
+}
+
+.swatch-container {
+  border: rgb(244, 244, 244) solid 20px;    
+  color: rgb(244, 244, 244);
+  height: 270px;
+  width: 270px;
+  border-radius: 32px;
+  position: relative;
+  box-shadow: 0 10px 10px 10px #0f172a84;
+  overflow: hidden;
+  transition: transform 1.3s ease;
+}
+.swatch {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  margin:  auto;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(244, 244, 244);
+  transition: transform 0.8s ease;
+  
+}
+
+.swatch-square {
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+}
+
+.sw-s-top-l {
+  border-top-left-radius: 20px;
+}
+.sw-s-top-r {
+  border-top-right-radius: 20px;
+}
+.sw-s-bottom-l {
+  border-bottom-left-radius: 20px;
+}
+.sw-s-bottom-r {
+  border-bottom-right-radius: 20px;
+}
+
+.section {
+  padding: 30px 0;
+}
+
 .colour-form {
   display: flex;
   width: fit-content;
@@ -258,7 +380,7 @@ h5 {
   justify-content: center;
   border: 2px var(--grey-400) solid;
   border-radius: 20px;
-  margin: 40px auto;
+  margin: 0 auto
 }
 input[type="text"] {
   border-color: transparent;
@@ -308,8 +430,6 @@ input[type="color" i]::-webkit-color-swatch {
   flex-direction: column-reverse;
   justify-content: end;
   text-align: left;
-  height: 100%;
-  width: 100%;
   min-height: 200px;
   color: white;
   font-size: 1rem;
@@ -359,7 +479,6 @@ input[type="color" i]::-webkit-color-swatch {
   height: 29%;
   top: 0;
   left: 0;
-  padding: 16px;
   background-color: beige;
   transition: all 200ms ease-in-out;
   line-height: 1rem;
@@ -469,7 +588,7 @@ input[type="color" i]::-webkit-color-swatch {
   .colour-list {
     grid-template-columns: repeat(7, 1fr);
   }
-  .copy-section {
+  /* .copy-section {
     padding-bottom: 21px;
-  }
+  } */
 }
