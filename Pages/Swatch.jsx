@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
+import rgbHex from 'rgb-hex';
+
 
 const Swatch = ({setColour}) => {
   const [state, setState] = useState(0);
@@ -18,7 +20,7 @@ const Swatch = ({setColour}) => {
   const handleSwatchClick = (e) => {
     const clickedElement = e.target;
     const computedStyle = window.getComputedStyle(clickedElement);
-    const backgroundColor = computedStyle.backgroundColor;
+    const backgroundColor = `#${rgbHex(computedStyle.backgroundColor)}`
     console.log("Clicked element background color:", backgroundColor);
     setColour(backgroundColor)
   };
