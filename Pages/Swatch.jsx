@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import { FaCopy } from "react-icons/fa6";
 import classNames from "classnames";
 import rgbHex from "rgb-hex";
 
 const Swatch = ({ setColour }) => {
   const [state, setState] = useState(0);
   const [swatchColours, setSwatchColours] = useState([]);
-  const [rotationAngle, setRotationAngle] = useState(0);
-  
+
   //   creates template div for mapping 16 swatch squares and 3 swatches
   const swatchArray = Array.from({ length: 10 }, (_, index) => index + 1);
 
@@ -18,8 +18,9 @@ const Swatch = ({ setColour }) => {
   };
 
   const handleSwatchClick = (e) => {
-    const clickedElement = e.target;
-    const computedStyle = window.getComputedStyle(clickedElement);
+    const swatchSquareElement = e.currentTarget.firstChild
+    console.log(swatchSquareElement);
+    const computedStyle = window.getComputedStyle(swatchSquareElement);
     const backgroundColor = `#${rgbHex(computedStyle.backgroundColor)}`;
     console.log("Clicked element background color:", backgroundColor);
     setColour(backgroundColor);
@@ -32,24 +33,13 @@ const Swatch = ({ setColour }) => {
     setSwatchColours(mountColors);
   }, []);
 
-  useEffect(() => {
-    const nextSlide = () => {
-      setState((currentState) => (currentState + 1) % swatchArray.length);
-    };
-    let sliderId = setInterval(nextSlide, 8000);
-    return () => clearInterval(sliderId);
-  }, []);
-
-  useEffect(() => {
-    const rotateSwatch = () => {
-      setRotationAngle((prevAngle) => (prevAngle + 180) % 360);
-    };
-    let delayId = setTimeout(() => {
-      const rotationId = setInterval(rotateSwatch, 10000);
-      return () => clearInterval(rotationId);
-    }, 2500);
-    return () => clearTimeout(delayId);
-  }, []);
+    useEffect(() => {
+      const nextSlide = () => {
+        setState((currentState) => (currentState + 1) % swatchArray.length);
+      };
+      let sliderId = setInterval(nextSlide, 10000);
+      return () => clearInterval(sliderId);
+    }, []);
 
   return (
     <section>
@@ -63,7 +53,6 @@ const Swatch = ({ setColour }) => {
               }}
               className="swatch"
               key={i}
-              onClick={handleSwatchClick}
             >
               {swatchColours[0].map((square, j) => {
                 //   classNames for styling of swatch squares
@@ -76,12 +65,21 @@ const Swatch = ({ setColour }) => {
                 });
                 return (
                   <div
-                    className={swatchCornerClasses}
-                    key={square}
-                    style={{
-                      backgroundColor: swatchColours[i]?.[j] || randomColour(),
-                    }}
-                  />
+                    className="square-container"
+                    onClick={handleSwatchClick}
+                  >
+                    <div
+                      className={swatchCornerClasses}
+                      key={square}
+                      style={{
+                        backgroundColor:
+                          swatchColours[i]?.[j] || randomColour(),
+                      }}
+                    />
+                    <div className="swatch-icon">
+                      <FaCopy className="icon"></FaCopy>
+                    </div>
+                  </div>
                 );
               })}
             </div>

@@ -346,15 +346,43 @@ h5 {
   width: 100%;
   background-color: rgb(244, 244, 244);
   transition: transform 0.8s ease;
-  
-  
 }
 
+.square-container {
+  position: relative;
+  background-color: transparent;
+  z-index: 10;
+}
 .swatch-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   height: 60px;
   width: 60px;
   overflow: hidden;
   cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.swatch-icon {
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.square-container:hover .swatch-square {
+  filter: brightness(75%);
+}
+
+.square-container:hover .swatch-icon {
+  opacity: 1;
 }
 
 .sw-s-top-l {
