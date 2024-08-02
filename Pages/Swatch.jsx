@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
 
-const Swatch = () => {
+const Swatch = ({setColour}) => {
   const [state, setState] = useState(0);
   const [swatchColours, setSwatchColours] = useState([]);
   const [rotationAngle, setRotationAngle] = useState(0);
@@ -14,6 +14,15 @@ const Swatch = () => {
     const [red, green, blue] = [getValue(), getValue(), getValue()];
     return `rgb(${red}, ${green}, ${blue})`;
   };
+
+  const handleSwatchClick = (e) => {
+    const clickedElement = e.target;
+    const computedStyle = window.getComputedStyle(clickedElement);
+    const backgroundColor = computedStyle.backgroundColor;
+    console.log("Clicked element background color:", backgroundColor);
+    setColour(backgroundColor)
+  };
+
 
   useEffect(() => {
     const mountColors = swatchArray.map(() =>
@@ -54,11 +63,11 @@ const Swatch = () => {
             <div
               style={{
                 transform: `translateX(${100 * (i - state)}%)`,
-                //   opacity: i === state ? 1 : 0,
-                //   visibility: i===state? 'visible' : 'hidden'
+    
               }}
               className="swatch"
               key={i}
+              onClick={handleSwatchClick}
             >
               {swatchColours[0].map((square, j) => {
                 //   classNames for styling of swatch squares
