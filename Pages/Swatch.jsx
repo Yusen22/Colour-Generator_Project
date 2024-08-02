@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
-import rgbHex from 'rgb-hex';
+import rgbHex from "rgb-hex";
 
-
-const Swatch = ({setColour}) => {
+const Swatch = ({ setColour }) => {
   const [state, setState] = useState(0);
   const [swatchColours, setSwatchColours] = useState([]);
   const [rotationAngle, setRotationAngle] = useState(0);
+  
   //   creates template div for mapping 16 swatch squares and 3 swatches
   const swatchArray = Array.from({ length: 10 }, (_, index) => index + 1);
 
@@ -20,11 +20,10 @@ const Swatch = ({setColour}) => {
   const handleSwatchClick = (e) => {
     const clickedElement = e.target;
     const computedStyle = window.getComputedStyle(clickedElement);
-    const backgroundColor = `#${rgbHex(computedStyle.backgroundColor)}`
+    const backgroundColor = `#${rgbHex(computedStyle.backgroundColor)}`;
     console.log("Clicked element background color:", backgroundColor);
-    setColour(backgroundColor)
+    setColour(backgroundColor);
   };
-
 
   useEffect(() => {
     const mountColors = swatchArray.map(() =>
@@ -37,7 +36,7 @@ const Swatch = ({setColour}) => {
     const nextSlide = () => {
       setState((currentState) => (currentState + 1) % swatchArray.length);
     };
-    let sliderId = setInterval(nextSlide, 5000);
+    let sliderId = setInterval(nextSlide, 8000);
     return () => clearInterval(sliderId);
   }, []);
 
@@ -54,18 +53,13 @@ const Swatch = ({setColour}) => {
 
   return (
     <section>
-      {/* <div className="swatch-bg"/> */}
-      <div
-        className="swatch-container"
-        // style={{ transform: `rotate(${rotationAngle}deg)` }}
-      >
+      <div className="swatch-container">
         {/* Maps 3 swatches from swatchArray */}
         {swatchColours.map((swatch, i) => {
           return (
             <div
               style={{
                 transform: `translateX(${100 * (i - state)}%)`,
-    
               }}
               className="swatch"
               key={i}
@@ -93,9 +87,6 @@ const Swatch = ({setColour}) => {
             </div>
           );
         })}
-
-        {/* <div className="swatch swatch-2"></div>
-      <div className="swatch swatch-3"></div> */}
       </div>
     </section>
   );
