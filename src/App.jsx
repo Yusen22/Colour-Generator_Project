@@ -57,7 +57,7 @@ const App = () => {
   return (
     <main>
       <Header/>
-      <Hero></Hero>
+      <Hero setColour={setColour}></Hero>
       <Form
         setColour={setColour}
         colour={colour}
