@@ -1,6 +1,6 @@
 import Swatch from "./Swatch";
 
-const Hero = () => {
+const Hero = ({setColour}) => {
   return (
     <section className="hero">
       <div className="hero-text">
@@ -36,7 +36,7 @@ const Hero = () => {
           <div className="loader-2"></div>
           <div className="loader"></div>
         </div> */}
-        <Swatch />
+        <Swatch setColour={setColour} />
       </div>
     </section>
   );
